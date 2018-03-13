@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="Веб_камера.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Веб_камера"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+    <Page.Resources>
+        <ResourceDictionary Source="Style.xaml">
+        </ResourceDictionary>
+    </Page.Resources>
+    <Page.DataContext>
+        <local:ViewModel/>
+    </Page.DataContext>
+    
+    
+    <Grid Style="{StaticResource GridStyle}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0"  Margin="50" Source="{Binding ImageSource}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonStyle}" 
+                    Background="{StaticResource ButtonBrush1}" 
+                    Command="{Binding DoPhoto}" CommandParameter="{Binding}"
+              />
+        </Grid>
+    </Grid>
+
+</Page>
